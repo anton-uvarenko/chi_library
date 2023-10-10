@@ -1,0 +1,17 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.flex-container > div {
+    border: 1px solid black;
+    margin-left: 10px;
+    width: 60vh;
+}
+
+.first + div {
+    background-color: grey;
+}
+
