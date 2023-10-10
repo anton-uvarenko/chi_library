@@ -1,0 +1,23 @@
+.parent > li:first-child {
+    color: red;
+}
+
+.parent > li {
+    list-style-type: none;
+}
+
+.parent > li::before {
+    content: " -- ";
+}
+
+.parent > li:nth-child(odd) {
+    background-color: #cbc8c8;
+}
+
+.parent > li:hover {
+    background-color: #f7d7d7;
+}
+
+.parent > li:last-child {
+    font-weight: bold;
+}
