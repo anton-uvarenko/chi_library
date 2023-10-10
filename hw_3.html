@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Назва книги</th>
+                <th>Автор</th>
+                <th>Рейтинг</th>
+                <th>Прослухати фрагмент</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Приклад книги</td>
+                <td>Приклад автора</td>
+                <td>100%</td>
+                <td><audio controls></audio></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Про нашу бібліотеку</h3>
+    <video controls></video>
+
+    <h3>Додати нову книгу</h3>
+    <form>
+        <label for="name">Name: </label>
+        <input id="name" type="text"/>
+
+        <label for="author">Author: </label>
+        <input id="author" type="text"/>
+
+        <label for="description">Description: </label>
+        <textarea id="description"></textarea>
+
+        <label for="rating">Rating: </label>
+        <input id="rating" type="range"/>
+
+        <label for="img">Img: </label>
+        <input id="img" type="file">
+
+        <input type="submit">
+    </form>
+
+    <h3>Додаткова інформація</h3>
+    <p>Ви можете додавати додаткову інформацію тут <blockquote>"Це цитата з іншого джерела"</blockquote></p>
+    <cite>-Вдячна людина</cite>
+</body>
+</html>
