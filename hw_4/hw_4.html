@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="hw_4.js"></script>
+</head>
+<body>
+    <input type="number" onblur="handleBlur(event, 0)">
+    <input type="number" onblur="handleBlur(event, 1)">
+    <select onchange="handleChooseOperation(event)">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="submit" onclick="handleEvaluate()">
+</body>
+</html>
