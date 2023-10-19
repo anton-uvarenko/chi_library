@@ -1,4 +1,4 @@
-const books = ['Harry Potter', 'Witcher', '1984'];
+let books = ['Harry Potter', 'Witcher', '1984'];
 console.log(books);
 
 books.sort();
