@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td, th {
+          border: 1px solid black;
+        }
+        td {
+          cursor: pointer;
+          font-size: 20px;
+          text-align: center;
+          width: 200px;
+        }
+        td:hover {
+          transform: scale(1.1);
+          background-color: #fff;
+        }
+        input[type=text] {
+          cursor: pointer;
+          border: none;
+          width: 100%;
+          font-family: Serif;
+          font-size: 20px;
+          color: black;
+          box-sizing: border-box;
+        }
+
+        button {
+          margin-left: 10px;
+        }
+
+        span {
+          margin-left: 10px;
+        }
+    </style>
+  <script defer src="hw_5.js"></script>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+
+    <tbody class="table-body">
+      <tr>
+        <td><span>Math</span><span class="time">10</span><button onclick="deleteCellInformation(0)">X</button></td>
+        <td><span>Math</span><span class="time">10</span><button onclick="deleteCellInformation(1)">X</button></td>
+        <td><span>Math</span><span class="time">10</span><button onclick="deleteCellInformation(2)">X</button></td>
+        <td><span>Math</span><span class="time">10</span><button onclick="deleteCellInformation(3)">X</button></td>
+        <td><span>Math</span><span class="time">10</span><button onclick="deleteCellInformation(4)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="addLesson()">add new row</button>
+  <button onclick="addToCache()">add to cache</button>
+  <button onclick="clearCache()">clear cache</button>
+  <button onclick="printCache()">print cache data</button>
+</body>
+</html>
