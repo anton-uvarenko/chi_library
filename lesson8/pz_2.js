@@ -1,7 +1,7 @@
 function delayedGreeting(duration, message) {
     return new Promise((resolve, reject) => {
         if (duration > 10_000) {
-            return reject("Duration is too long");
+            reject("Duration is too long");
         }
         setTimeout(() => {
             resolve(message)
