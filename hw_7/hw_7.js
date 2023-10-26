@@ -15,6 +15,9 @@ function handleSubmit(event) {
     console.log(requestObject);
     fetch("https://api.restful-api.dev/objects", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(requestObject),
     })
         .then((res) => res.json())
