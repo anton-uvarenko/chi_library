@@ -1,0 +1,14 @@
+message obj {
+  required int32 id = 1;
+  required string name = 2;
+  required int32 age = 3;
+  required bool isStudent = 4;
+  repeated string courses = 5;
+  required address address = 6;
+}
+
+message address {
+  required string street = 1;
+  required string city = 2;
+  required string zipcode = 4;
+}

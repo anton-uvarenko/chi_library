@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="Big5" ?>
+<obj>
+    <id>1</id>
+    <name>John Doe</name>
+    <age>25</age>
+    <isStudent>true</isStudent>
+    <courses>
+        <value>Math</value>
+        <value>History</value>
+        <value>English</value>
+    </courses>
+    <address>
+        <street>123 Main Street</street>
+        <city>New York</city>
+        <zipcode>10001</zipcode>
+    </address>
+</obj>
