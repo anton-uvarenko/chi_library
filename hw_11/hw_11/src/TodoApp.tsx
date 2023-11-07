@@ -100,12 +100,15 @@ class TodoApp extends Component<any, State> {
                             return;
                         }
 
-                        console.log(todo);
+                        if (this.state.todosToShow === TodosToShow.Unncomplete && todo.isComplete) {
+                            return;
+                        }
+
                         return (
                             <div>
                                 <div>{todo.name}</div>
-                                <input type="checkbox" checked={todo.isComplete} onChange={this.handleChangeTodoState(index)}/>
-                                <button onClick={this.handleDeleteTodo(index)}>delete</button>
+                                <input type="checkbox" checked={todo.isComplete} onChange={() => this.handleChangeTodoState(index)}/>
+                                <button onClick={() => this.handleDeleteTodo(index)}>delete</button>
                             </div>
                         )
                     })}
