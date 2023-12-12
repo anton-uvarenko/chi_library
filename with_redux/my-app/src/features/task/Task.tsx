@@ -1,6 +1,6 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {addTask, ITask, tasksSelector} from "./taskSlice";
+import {addTask, ITask, tasksSelector, taskThunk} from "./taskSlice";
 
 export const Task: FC = () => {
     const dispatch = useAppDispatch();
@@ -12,6 +12,10 @@ export const Task: FC = () => {
             id: tasks.length,
         } as ITask))
     }
+
+    useEffect(() => {
+        dispatch(taskThunk());
+    }, []);
 
     return (
         <>
