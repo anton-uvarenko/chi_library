@@ -2,41 +2,67 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store";
 import internal from "node:stream";
 
+export enum TaskStatus {
+    TODO = "TODO",
+    IN_PROGRESS = "IN_PROGRESS",
+    DONE = "DONE",
+}
 
 export interface ITask {
     description: string,
     id: number,
+    status: TaskStatus,
 }
 
 export interface ITaskState {
-    messages: ITask[],
+    tasks: ITask[],
 }
 
 const initialState: ITaskState = {
-    messages: [],
+    tasks: [],
+}
+
+export const randomStatus= (): TaskStatus => {
+    const rd = Math.floor(Math.random() * 3);
+
+    console.log(rd);
+
+    switch (rd) {
+        case 0:
+            return TaskStatus.TODO;
+        case 1:
+            return TaskStatus.IN_PROGRESS;
+        case 2:
+            return TaskStatus.DONE;
+    }
+
+    return TaskStatus.TODO;
+}
+
+const taskResponse = async () => {
+    return [
+        {
+            id: 0,
+            description: Math.random().toString(),
+            status: randomStatus(),
+        },
+        {
+            id: 1,
+            description: Math.random().toString(),
+            status: randomStatus(),
+        },
+        {
+            id: 2,
+            description: Math.random().toString(),
+            status: randomStatus(),
+        },
+    ] as ITask[]
 }
 
 export const taskThunk = createAsyncThunk(
     'task/taskThunk',
     async () => {
-        const response = await Promise.resolve(
-            [
-                {
-                    id: Math.random(),
-                    description: Math.random().toString(),
-                },
-                {
-                    id: Math.random(),
-                    description: Math.random().toString(),
-                },
-                {
-                    id: Math.random(),
-                    description: Math.random().toString(),
-                },
-            ] as ITask[]
-        )
-
-        return response
+        return taskResponse();
     })
 
 export const messageSlice = createSlice({
@@ -44,12 +70,20 @@ export const messageSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action: PayloadAction<ITask>) => {
-            state.messages.push(action.payload);
+            state.tasks.push(action.payload);
+        },
+        deleteTask: (state, action: PayloadAction<number>) => {
+            state.tasks.splice(
+                state.tasks.findIndex((element, index, array) => {
+                    return element.id === action.payload;
+                }),
+                1
+            )
         }
     },
     extraReducers: (builder) => {
         builder.addCase(taskThunk.fulfilled, (state, action: PayloadAction<ITask[]>) => {
-            state.messages = action.payload;
+            state.tasks = action.payload;
         })
         builder.addCase(taskThunk.rejected, (state, action) => {
           console.log("rejected");
@@ -60,7 +94,7 @@ export const messageSlice = createSlice({
     }
 })
 
-export const tasksSelector= (state: RootState) => state.task.messages;
-export const {addTask} = messageSlice.actions;
+export const tasksSelector= (state: RootState) => state.task.tasks;
+export const {addTask, deleteTask} = messageSlice.actions;
 
 export default messageSlice.reducer;
